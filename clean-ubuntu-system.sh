@@ -30,3 +30,9 @@ sudo apt-get remove
 docker container prune -f
 docker volume prune -f
 docker network prune -f
+
+# High cpu usage ubuntu
+# https://forums.docker.com/t/dockerd-using-100-cpu/94962
+# Clean up corrupt json-log
+sudo find /var/lib/docker/containers/ -name *-json.log -exec bash -c 'jq '.' {} > /dev/null 2>&1 || echo "file corrupt: {}"' \;
+sudo find /var/lib/docker/containers/ -name *-json.log -exec mv {} ~/logs-backup \;

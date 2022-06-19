@@ -20,3 +20,9 @@ LANG=en_US.UTF-8 snap list --all | awk '/disabled/{print $1, $3}' |
     done
 
 sudo rm -rf /var/lib/snapd/cache/*
+
+# Clean incompleted install
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo apt-get clean
+sudo apt-get remove

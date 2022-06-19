@@ -26,3 +26,7 @@ sudo apt-get autoremove
 sudo apt-get autoclean
 sudo apt-get clean
 sudo apt-get remove
+
+docker container prune -f
+docker volume prune -f
+docker network prune -f
